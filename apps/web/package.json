@@ -1,0 +1,49 @@
+{
+  "name": "@pbd/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm with-env next build",
+    "clean": "git clean -xdf .next .turbo node_modules",
+    "dev": "pnpm with-env next dev -p 3000",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "start": "pnpm with-env next start",
+    "typecheck": "tsc --noEmit",
+    "with-env": "dotenv -e .env.local --"
+  },
+  "dependencies": {
+    "@pbd/api": "workspace:*",
+    "@pbd/auth": "workspace:*",
+    "@pbd/db": "workspace:*",
+    "@pbd/ui": "workspace:*",
+    "@pbd/validators": "workspace:*",
+    "@react-three/drei": "^9.105.6",
+    "@react-three/fiber": "^8.16.6",
+    "@t3-oss/env-nextjs": "^0.10.1",
+    "framer-motion": "^11.2.5",
+    "next": "^14.2.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "three": "^0.164.1",
+    "three-globe": "^2.31.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@pbd/eslint-config": "workspace:*",
+    "@pbd/prettier-config": "workspace:*",
+    "@pbd/tailwind-config": "workspace:*",
+    "@pbd/tsconfig": "workspace:*",
+    "@types/node": "^20.12.9",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "dotenv-cli": "^7.4.2",
+    "eslint": "^9.2.0",
+    "jiti": "^1.21.0",
+    "prettier": "^3.2.5",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
+  },
+  "prettier": "@pbd/prettier-config"
+}

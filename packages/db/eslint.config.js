@@ -1,9 +1,9 @@
-import baseConfig, { restrictEnvAccess } from "@acme/eslint-config/base";
+import baseConfig, { restrictEnvAccess } from '@pbd/eslint-config/base';
 
 /** @type {import('typescript-eslint').Config} */
 export default [
   {
-    ignores: ["dist/**"],
+    ignores: ['dist/**'],
   },
   ...baseConfig,
   ...restrictEnvAccess,

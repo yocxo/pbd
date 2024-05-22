@@ -1,9 +1,10 @@
-import { cache } from "react";
-import NextAuth from "next-auth";
+import { cache } from 'react';
 
-import { authConfig } from "./config";
+import NextAuth from 'next-auth';
 
-export type { Session } from "next-auth";
+import { authConfig } from './config';
+
+export type { Session } from 'next-auth';
 
 const {
   handlers: { GET, POST },

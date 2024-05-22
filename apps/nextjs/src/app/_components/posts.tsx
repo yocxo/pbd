@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { use } from "react";
+import { use } from 'react';
 
-import type { RouterOutputs } from "@acme/api";
-import { CreatePostSchema } from "@acme/db/schema";
-import { cn } from "@acme/ui";
-import { Button } from "@acme/ui/button";
+import type { RouterOutputs } from '@pbd/api';
+import { CreatePostSchema } from '@pbd/db/schema';
+import { Button } from '@pbd/ui/button';
+import { Card } from '@pbd/ui/card';
 import {
   Form,
   FormControl,
@@ -13,18 +13,18 @@ import {
   FormItem,
   FormMessage,
   useForm,
-} from "@acme/ui/form";
-import { Input } from "@acme/ui/input";
-import { toast } from "@acme/ui/toast";
+} from '@pbd/ui/form';
+import { Input } from '@pbd/ui/input';
+import { toast } from '@pbd/ui/toast';
 
-import { api } from "~/trpc/react";
+import { api } from '#/trpc/react';
 
 export function CreatePostForm() {
   const form = useForm({
     schema: CreatePostSchema,
     defaultValues: {
-      content: "",
-      title: "",
+      content: '',
+      title: '',
     },
   });
 
@@ -36,9 +36,9 @@ export function CreatePostForm() {
     },
     onError: (err) => {
       toast.error(
-        err.data?.code === "UNAUTHORIZED"
-          ? "You must be logged in to post"
-          : "Failed to create post",
+        err.data?.code === 'UNAUTHORIZED'
+          ? 'You must be logged in to post'
+          : 'Failed to create post',
       );
     },
   });
@@ -82,7 +82,7 @@ export function CreatePostForm() {
 }
 
 export function PostList(props: {
-  posts: Promise<RouterOutputs["post"]["all"]>;
+  posts: Promise<RouterOutputs['post']['all']>;
 }) {
   // TODO: Make `useSuspenseQuery` work without having to pass a promise from RSC
   const initialData = use(props.posts);
@@ -92,13 +92,13 @@ export function PostList(props: {
 
   if (posts.length === 0) {
     return (
-      <div className="relative flex w-full flex-col gap-4">
-        <PostCardSkeleton pulse={false} />
-        <PostCardSkeleton pulse={false} />
-        <PostCardSkeleton pulse={false} />
+      <div className="relative flex w-full flex-col gap-4 p-4">
+        <PostCardSkeleton />
+        <PostCardSkeleton />
+        <PostCardSkeleton />
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/10">
-          <p className="text-2xl font-bold text-white">No posts yet</p>
+        <div className="absolute inset-0 flex flex-col items-center justify-center rounded-md border bg-black/10">
+          <p className="text-3xl text-foreground">No posts yet</p>
         </div>
       </div>
     );
@@ -114,7 +114,7 @@ export function PostList(props: {
 }
 
 export function PostCard(props: {
-  post: RouterOutputs["post"]["all"][number];
+  post: RouterOutputs['post']['all'][number];
 }) {
   const utils = api.useUtils();
   const deletePost = api.post.delete.useMutation({
@@ -123,54 +123,61 @@ export function PostCard(props: {
     },
     onError: (err) => {
       toast.error(
-        err.data?.code === "UNAUTHORIZED"
-          ? "You must be logged in to delete a post"
-          : "Failed to delete post",
+        err.data?.code === 'UNAUTHORIZED'
+          ? 'You must be logged in to delete a post'
+          : 'Failed to delete post',
       );
     },
   });
 
   return (
-    <div className="flex flex-row rounded-lg bg-muted p-4">
-      <div className="flex-grow">
-        <h2 className="text-2xl font-bold text-primary">{props.post.title}</h2>
-        <p className="mt-2 text-sm">{props.post.content}</p>
+    <Card className="flex w-full max-w-3xl items-center justify-between p-4">
+      <div className="flex flex-col items-start">
+        <h2 className="text-lg font-semibold text-foreground">
+          {props.post.title}
+        </h2>
+        <p className="mt-2 text-muted-foreground">{props.post.content}</p>
       </div>
-      <div>
-        <Button
-          variant="ghost"
-          className="cursor-pointer text-sm font-bold uppercase text-primary hover:bg-transparent hover:text-white"
-          onClick={() => deletePost.mutate(props.post.id)}
-        >
-          Delete
-        </Button>
+      <Button
+        className="text-destructive hover:text-secondary-foreground"
+        variant="ghost"
+        onClick={() => deletePost.mutate(props.post.id)}
+      >
+        <TrashIcon className="h-5 w-5" />
+      </Button>
+    </Card>
+  );
+}
+
+export function PostCardSkeleton() {
+  return (
+    <div className="flex w-full max-w-3xl animate-pulse items-center justify-between rounded-md bg-card p-4 shadow-sm">
+      <div className="flex flex-col items-start space-y-2">
+        <div className="h-5 w-48 rounded-md bg-muted" />
+        <div className="h-4 w-72 rounded-md bg-muted" />
       </div>
+      <div className="h-8 w-8 rounded-full bg-muted" />
     </div>
   );
 }
 
-export function PostCardSkeleton(props: { pulse?: boolean }) {
-  const { pulse = true } = props;
+function TrashIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <div className="flex flex-row rounded-lg bg-muted p-4">
-      <div className="flex-grow">
-        <h2
-          className={cn(
-            "w-1/4 rounded bg-primary text-2xl font-bold",
-            pulse && "animate-pulse",
-          )}
-        >
-          &nbsp;
-        </h2>
-        <p
-          className={cn(
-            "mt-2 w-1/3 rounded bg-current text-sm",
-            pulse && "animate-pulse",
-          )}
-        >
-          &nbsp;
-        </p>
-      </div>
-    </div>
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 6h18" />
+      <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+      <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+    </svg>
   );
 }

@@ -1,10 +1,11 @@
-import type { TRPCRouterRecord } from "@trpc/server";
-import { z } from "zod";
+import type { TRPCRouterRecord } from '@trpc/server';
 
-import { desc, eq } from "@acme/db";
-import { CreatePostSchema, Post } from "@acme/db/schema";
+import { z } from 'zod';
 
-import { protectedProcedure, publicProcedure } from "../trpc";
+import { desc, eq } from '@pbd/db';
+import { CreatePostSchema, Post } from '@pbd/db/schema';
+
+import { protectedProcedure, publicProcedure } from '../trpc';
 
 export const postRouter = {
   all: publicProcedure.query(({ ctx }) => {

@@ -1,8 +1,8 @@
-import NextAuth from "next-auth";
+import NextAuth from 'next-auth';
 
-import { authConfig } from "./config";
+import { authConfig } from './config';
 
-export type { Session } from "next-auth";
+export type { Session } from 'next-auth';
 
 const {
   handlers: { GET, POST },

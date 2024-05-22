@@ -1,15 +1,16 @@
-import type { DefaultSession, NextAuthConfig } from "next-auth";
-import { DrizzleAdapter } from "@auth/drizzle-adapter";
-import Discord from "next-auth/providers/discord";
+import type { DefaultSession, NextAuthConfig } from 'next-auth';
 
-import { db } from "@acme/db/client";
-import { Account, Session, User } from "@acme/db/schema";
+import { DrizzleAdapter } from '@auth/drizzle-adapter';
+import Discord from 'next-auth/providers/discord';
 
-declare module "next-auth" {
+import { db } from '@pbd/db/client';
+import { Account, Session, User } from '@pbd/db/schema';
+
+declare module 'next-auth' {
   interface Session {
     user: {
       id: string;
-    } & DefaultSession["user"];
+    } & DefaultSession['user'];
   }
 }
 
@@ -22,7 +23,7 @@ export const authConfig = {
   providers: [Discord],
   callbacks: {
     session: (opts) => {
-      if (!("user" in opts)) throw "unreachable with session strategy";
+      if (!('user' in opts)) throw 'unreachable with session strategy';
 
       return {
         ...opts.session,
