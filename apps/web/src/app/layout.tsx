@@ -88,8 +88,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <Header />
             <main className="flex flex-1 flex-col">{children}</main>
           </div>
+          <Footer />
         </Providers>
-        <Footer />
       </body>
     </html>
   );
