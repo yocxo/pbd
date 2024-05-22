@@ -7,7 +7,7 @@ import { siteConfig } from '#/config/site';
 export default function Footer() {
   return (
     <footer className="fixed bottom-0 w-full bg-card">
-      <div className="mx-auto max-w-7xl px-6 py-6 md:flex md:items-center md:justify-between lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 py-2 md:flex md:items-center md:justify-between md:py-6 lg:px-8">
         <div className="flex items-center justify-center space-x-6 md:order-2">
           <ThemeToggle />
           <Link
@@ -18,7 +18,7 @@ export default function Footer() {
             Contact
           </Link>
         </div>
-        <div className="mt-8 md:order-1 md:mt-0">
+        <div className="mt-2 md:order-1 md:mt-0">
           <p className="text-center text-xs leading-5 text-muted-foreground">
             &copy; {new Date().getFullYear()} {siteConfig.name}. All Rights
             Reserved.
