@@ -1,4 +1,4 @@
-import { GlobeHero } from './globe-hero';
+import Globe from './globe';
 
 export default function Hero() {
   return (
@@ -18,16 +18,18 @@ export default function Hero() {
       <div className="py-24 sm:py-32 lg:pb-40">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="font-display text-4xl uppercase tracking-tight text-foreground sm:text-6xl">
-              Gain a new perspective
+            <h1 className="font-display text-5xl uppercase tracking-tight text-foreground sm:text-7xl">
+              Gain new perspective
             </h1>
-            <p className="mt-6 text-xl leading-8 text-muted-foreground">
-              Pale Blue Dot collaborates with organizations to enhance
-              competitive edge through outcome-driven strategies that focus on
-              people, processes, and technology.
+            <p className="mx-auto mt-6 max-w-3xl text-pretty text-xl leading-8 text-muted-foreground">
+              Pale Blue Dot is an enterprise partner. We enhance competitive
+              edge through outcome-driven strategies that focus on people,
+              processes, and technology.
             </p>
+            <div className="relative mx-auto flex h-full w-full max-w-[32rem] items-center justify-center px-40 pb-40 pt-8 md:pb-60">
+              <Globe className="z-10 md:top-28" />
+            </div>
           </div>
-          <GlobeHero />
         </div>
       </div>
       <div

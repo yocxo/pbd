@@ -1,325 +1,236 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 'use client';
 
-import type { Object3DNode } from '@react-three/fiber';
+import type { COBEOptions } from 'cobe';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
-import { OrbitControls } from '@react-three/drei';
-import { Canvas, extend, useThree } from '@react-three/fiber';
-import { Color, Fog, PerspectiveCamera, Scene, Vector3 } from 'three';
-import ThreeGlobe from 'three-globe';
+import createGlobe from 'cobe';
+import { useSpring } from 'react-spring';
 
-import countries from '#/data/globe.json';
+import { cn } from '@pbd/ui';
 
-declare module '@react-three/fiber' {
-  interface ThreeElements {
-    threeGlobe: Object3DNode<ThreeGlobe, typeof ThreeGlobe>;
-  }
-}
+const GLOBE_CONFIG: COBEOptions = {
+  width: 800,
+  height: 800,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onRender: () => {},
+  devicePixelRatio: 2,
+  phi: 0,
+  theta: 0.3,
+  dark: 0,
+  diffuse: 4,
+  mapSamples: 50000,
+  mapBrightness: 0.5,
+  baseColor: [0.69, 0.87, 0.9],
+  markerColor: [246 / 255, 218 / 255, 141 / 255],
+  glowColor: [1, 1, 1],
+  markers: [
+    // Karachi
+    { location: [24.827, 67.0251], size: 0.125 },
+    // London
+    { location: [51.5074, -0.1278], size: 0.094 },
+    // Paris
+    { location: [48.8566, 2.3522], size: 0.065 },
+    // New York City
+    { location: [40.7128, -74.006], size: 0.081 },
+    // Tokyo
+    { location: [35.6895, 139.6917], size: 0.057 },
+    // Singapore
+    { location: [1.3521, 103.8198], size: 0.072 },
+    // Dubai
+    { location: [25.276987, 55.296249], size: 0.099 },
+    // San Francisco
+    { location: [37.7749, -122.4194], size: 0.083 },
+    // Barcelona
+    { location: [41.3851, 2.1734], size: 0.056 },
+    // Amsterdam
+    { location: [52.3676, 4.9041], size: 0.092 },
+    // Seoul
+    { location: [37.5665, 126.978], size: 0.061 },
+    // Rome
+    { location: [41.9028, 12.4964], size: 0.089 },
+    // Prague
+    { location: [50.0755, 14.4378], size: 0.073 },
+    // Madrid
+    { location: [40.4168, -3.7038], size: 0.059 },
+    // Berlin
+    { location: [52.52, 13.405], size: 0.084 },
+    // Los Angeles
+    { location: [34.0522, -118.2437], size: 0.096 },
+    // Chicago
+    { location: [41.8781, -87.6298], size: 0.068 },
+    // Washington D.C.
+    { location: [38.9072, -77.0369], size: 0.077 },
+    // Beijing
+    { location: [39.9042, 116.4074], size: 0.091 },
+    // Istanbul
+    { location: [41.0082, 28.9784], size: 0.065 },
+    // Dublin
+    { location: [53.3498, -6.2603], size: 0.082 },
+    // Vienna
+    { location: [48.2082, 16.3738], size: 0.071 },
+    // Milan
+    { location: [45.4642, 9.19], size: 0.088 },
+    // Toronto
+    { location: [43.65107, -79.347015], size: 0.099 },
+    // Boston
+    { location: [42.3601, -71.0589], size: 0.054 },
+    // Abu Dhabi
+    { location: [24.4539, 54.3773], size: 0.093 },
+    // Budapest
+    { location: [47.4979, 19.0402], size: 0.062 },
+    // São Paulo
+    { location: [23.5505, -46.6333], size: 0.078 },
+    // Riyadh
+    { location: [24.7136, 46.6753], size: 0.069 },
+    // Stockholm
+    { location: [59.3293, 18.0686], size: 0.082 },
+    // Munich
+    { location: [48.1351, 11.582], size: 0.077 },
+    // Melbourne
+    { location: [37.8136, 144.9631], size: 0.093 },
+    // Lisbon
+    { location: [38.7223, -9.1393], size: 0.056 },
+    // Zürich
+    { location: [47.3769, 8.5417], size: 0.091 },
+    // Seattle
+    { location: [47.6062, -122.3321], size: 0.066 },
+    // Sydney
+    { location: [33.8688, 151.2093], size: 0.089 },
+    // Doha
+    { location: [25.276987, 51.520008], size: 0.081 },
+    // Brussels
+    { location: [50.8503, 4.3517], size: 0.074 },
+    // San Jose
+    { location: [37.3382, -121.8863], size: 0.084 },
+    // Bangkok
+    { location: [13.7563, 100.5018], size: 0.064 },
+    // Warsaw
+    { location: [52.2297, 21.0122], size: 0.077 },
+    // Copenhagen
+    { location: [55.6761, 12.5683], size: 0.09 },
+    // Taipei
+    { location: [25.033, 121.5654], size: 0.069 },
+    // Austin
+    { location: [30.2672, -97.7431], size: 0.082 },
+    // Oslo
+    { location: [59.9139, 10.7522], size: 0.075 },
+    // Osaka
+    { location: [34.6937, 135.5023], size: 0.094 },
+    // Hong Kong
+    { location: [22.3193, 114.1694], size: 0.056 },
+    // Athens
+    { location: [37.9838, 23.7275], size: 0.063 },
+    // Frankfurt
+    { location: [50.1109, 8.6821], size: 0.088 },
+    // Vancouver
+    { location: [49.2827, -123.1207], size: 0.072 },
+  ],
+};
 
-extend({ ThreeGlobe });
+export default function Globe({
+  className,
+  config = GLOBE_CONFIG,
+}: {
+  className?: string;
+  config?: COBEOptions;
+}) {
+  let phi = 0;
+  let width = 0;
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pointerInteracting = useRef(null);
+  const pointerInteractionMovement = useRef(0);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+  const [{ r }, api] = useSpring(() => ({
+    r: 0,
+    config: {
+      mass: 1,
+      tension: 280,
+      friction: 40,
+      precision: 0.001,
+    },
+  }));
 
-const RING_PROPAGATION_SPEED = 3;
-const aspect = 1.2;
-const cameraZ = 300;
-
-interface Position {
-  order: number;
-  startLat: number;
-  startLng: number;
-  endLat: number;
-  endLng: number;
-  arcAlt: number;
-  color: string;
-}
-
-export interface GlobeConfig {
-  pointSize?: number;
-  globeColor?: string;
-  showAtmosphere?: boolean;
-  atmosphereColor?: string;
-  atmosphereAltitude?: number;
-  emissive?: string;
-  emissiveIntensity?: number;
-  shininess?: number;
-  polygonColor?: string;
-  ambientLight?: string;
-  directionalLeftLight?: string;
-  directionalTopLight?: string;
-  pointLight?: string;
-  arcTime?: number;
-  arcLength?: number;
-  rings?: number;
-  maxRings?: number;
-  initialPosition?: {
-    lat: number;
-    lng: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const updatePointerInteraction = (value: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    pointerInteracting.current = value;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    canvasRef.current!.style.cursor = value ? 'grabbing' : 'grab';
   };
-  autoRotate?: boolean;
-  autoRotateSpeed?: number;
-}
 
-interface WorldProps {
-  globeConfig: GlobeConfig;
-  data: Position[];
-}
-
-let numbersOfRings = [0];
-
-export function Globe({ globeConfig, data }: WorldProps) {
-  const [globeData, setGlobeData] = useState<
-    | {
-        size: number;
-        order: number;
-        color: (t: number) => string;
-        lat: number;
-        lng: number;
-      }[]
-    | null
-  >(null);
-
-  const globeRef = useRef<ThreeGlobe | null>(null);
-
-  const defaultProps = {
-    pointSize: 1,
-    atmosphereColor: '#F6DA8D',
-    showAtmosphere: true,
-    atmosphereAltitude: 0.1,
-    polygonColor: 'rgba(255,255,255,0.7)',
-    globeColor: '#1d072e',
-    emissive: '#000000',
-    emissiveIntensity: 0.1,
-    shininess: 0.9,
-    arcTime: 2000,
-    arcLength: 0.9,
-    rings: 1,
-    maxRings: 3,
-    ...globeConfig,
-  };
-
-  useEffect(() => {
-    if (globeRef.current) {
-      _buildData();
-      _buildMaterial();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const updateMovement = (clientX: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    if (pointerInteracting.current !== null) {
+      const delta = clientX - pointerInteracting.current;
+      pointerInteractionMovement.current = delta;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+      api.start({ r: delta / 200 });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [globeRef.current]);
-
-  const _buildMaterial = () => {
-    if (!globeRef.current) return;
-
-    const globeMaterial = globeRef.current.globeMaterial() as unknown as {
-      color: Color;
-      emissive: Color;
-      emissiveIntensity: number;
-      shininess: number;
-    };
-    globeMaterial.color = new Color(globeConfig.globeColor);
-    globeMaterial.emissive = new Color(globeConfig.emissive);
-    globeMaterial.emissiveIntensity = globeConfig.emissiveIntensity ?? 0.1;
-    globeMaterial.shininess = globeConfig.shininess ?? 0.9;
   };
 
-  const _buildData = () => {
-    const arcs = data;
-    const points = [];
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
-    for (let i = 0; i < arcs.length; i++) {
-      const arc = arcs[i];
-      const rgb = hexToRgb(arc.color) as { r: number; g: number; b: number };
-      points.push({
-        size: defaultProps.pointSize,
-        order: arc.order,
-        color: (t: number) => `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${1 - t})`,
-        lat: arc.startLat,
-        lng: arc.startLng,
-      });
-      points.push({
-        size: defaultProps.pointSize,
-        order: arc.order,
-        color: (t: number) => `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${1 - t})`,
-        lat: arc.endLat,
-        lng: arc.endLng,
-      });
-    }
-
-    // remove duplicates for same lat and lng
-    const filteredPoints = points.filter(
-      (v, i, a) =>
-        a.findIndex((v2) =>
-          ['lat', 'lng'].every(
-            (k) => v2[k as 'lat' | 'lng'] === v[k as 'lat' | 'lng'],
-          ),
-        ) === i,
-    );
-
-    setGlobeData(filteredPoints);
-  };
-
-  useEffect(() => {
-    if (globeRef.current && globeData) {
-      globeRef.current
-        .hexPolygonsData(countries.features)
-        .hexPolygonResolution(3)
-        .hexPolygonMargin(0.7)
-        .showAtmosphere(defaultProps.showAtmosphere)
-        .atmosphereColor(defaultProps.atmosphereColor)
-        .atmosphereAltitude(defaultProps.atmosphereAltitude)
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        .hexPolygonColor((e) => {
-          return defaultProps.polygonColor;
-        });
-      startAnimation();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [globeData]);
-
-  const startAnimation = () => {
-    if (!globeRef.current || !globeData) return;
-
-    globeRef.current
-      .arcsData(data)
-      .arcStartLat((d) => (d as { startLat: number }).startLat * 1)
-      .arcStartLng((d) => (d as { startLng: number }).startLng * 1)
-      .arcEndLat((d) => (d as { endLat: number }).endLat * 1)
-      .arcEndLng((d) => (d as { endLng: number }).endLng * 1)
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .arcColor((e: any) => (e as { color: string }).color)
-      .arcAltitude((e) => {
-        return (e as { arcAlt: number }).arcAlt * 1;
-      })
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      .arcStroke((e) => {
-        return [0.32, 0.28, 0.3][Math.round(Math.random() * 2)];
-      })
-      .arcDashLength(defaultProps.arcLength)
-      .arcDashInitialGap((e) => (e as { order: number }).order * 1)
-      .arcDashGap(15)
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      .arcDashAnimateTime((e) => defaultProps.arcTime);
-
-    globeRef.current
-      .pointsData(data)
-      .pointColor((e) => (e as { color: string }).color)
-      .pointsMerge(true)
-      .pointAltitude(0.0)
-      .pointRadius(2);
-
-    globeRef.current
-      .ringsData([])
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
-      .ringColor((e: any) => (t: any) => e.color(t))
-      .ringMaxRadius(defaultProps.maxRings)
-      .ringPropagationSpeed(RING_PROPAGATION_SPEED)
-      .ringRepeatPeriod(
-        (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings,
-      );
-  };
-
-  useEffect(() => {
-    if (!globeRef.current || !globeData) return;
-
-    const interval = setInterval(() => {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-      if (!globeRef.current || !globeData) return;
-      numbersOfRings = genRandomNumbers(
-        0,
-        data.length,
-        Math.floor((data.length * 4) / 5),
-      );
-
-      globeRef.current.ringsData(
-        globeData.filter((d, i) => numbersOfRings.includes(i)),
-      );
-    }, 2000);
-
-    return () => {
-      clearInterval(interval);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [globeRef.current, globeData]);
-
-  return (
-    <>
-      <threeGlobe ref={globeRef} />
-    </>
+  const onRender = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (state: Record<string, any>) => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps, @typescript-eslint/no-unnecessary-condition
+      if (!pointerInteracting.current) phi += 0.001;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+      state.phi = phi + r.get();
+      state.width = width * 2;
+      state.height = width * 2;
+    },
+    [pointerInteracting, phi, r],
   );
-}
 
-export function WebGLRendererConfig() {
-  const { gl, size } = useThree();
+  const onResize = () => {
+    if (canvasRef.current) {
+      width = canvasRef.current.offsetWidth;
+    }
+  };
 
   useEffect(() => {
-    gl.setPixelRatio(window.devicePixelRatio);
-    gl.setSize(size.width, size.height);
-    gl.setClearColor(0xffaaff, 0);
+    window.addEventListener('resize', onResize);
+    onResize();
+
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const globe = createGlobe(canvasRef.current!, {
+      ...config,
+      width: width * 2,
+      height: width * 2,
+      onRender,
+    });
+
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    setTimeout(() => (canvasRef.current!.style.opacity = '1'));
+    return () => globe.destroy();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return null;
-}
-
-export function World(props: WorldProps) {
-  const { globeConfig } = props;
-  const scene = new Scene();
-  scene.fog = new Fog(0xffffff, 400, 2000);
   return (
-    <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
-      <WebGLRendererConfig />
-      <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
-      <directionalLight
-        color={globeConfig.directionalLeftLight}
-        position={new Vector3(-400, 100, 400)}
+    <div
+      className={cn(
+        'absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]',
+        className,
+      )}
+    >
+      <canvas
+        className={cn(
+          'h-full w-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]',
+        )}
+        ref={canvasRef}
+        onPointerDown={(e) =>
+          updatePointerInteraction(
+            e.clientX - pointerInteractionMovement.current,
+          )
+        }
+        onPointerUp={() => updatePointerInteraction(null)}
+        onPointerOut={() => updatePointerInteraction(null)}
+        onMouseMove={(e) => updateMovement(e.clientX)}
+        onTouchMove={(e) =>
+          e.touches[0] && updateMovement(e.touches[0].clientX)
+        }
       />
-      <directionalLight
-        color={globeConfig.directionalTopLight}
-        position={new Vector3(-200, 500, 200)}
-      />
-      <pointLight
-        color={globeConfig.pointLight}
-        position={new Vector3(-200, 500, 200)}
-        intensity={0.8}
-      />
-      <Globe {...props} />
-      <OrbitControls
-        enablePan={false}
-        enableZoom={false}
-        minDistance={cameraZ}
-        maxDistance={cameraZ}
-        autoRotateSpeed={1}
-        autoRotate={true}
-        minPolarAngle={Math.PI / 3.5}
-        maxPolarAngle={Math.PI - Math.PI / 3}
-      />
-    </Canvas>
+    </div>
   );
-}
-
-export function hexToRgb(hex: string) {
-  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  hex = hex.replace(shorthandRegex, function (m, r, g, b) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return r + r + g + g + b + b;
-  });
-
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result
-    ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
-      }
-    : null;
-}
-
-export function genRandomNumbers(min: number, max: number, count: number) {
-  const arr = [];
-  while (arr.length < count) {
-    const r = Math.floor(Math.random() * (max - min)) + min;
-    if (arr.indexOf(r) === -1) arr.push(r);
-  }
-
-  return arr;
 }
