@@ -140,7 +140,7 @@ export default function Globe({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef(null);
   const pointerInteractionMovement = useRef(0);
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+
   const [{ r }, api] = useSpring(() => ({
     r: 0,
     config: {
@@ -165,7 +165,7 @@ export default function Globe({
     if (pointerInteracting.current !== null) {
       const delta = clientX - pointerInteracting.current;
       pointerInteractionMovement.current = delta;
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
       api.start({ r: delta / 200 });
     }
   };
@@ -175,7 +175,7 @@ export default function Globe({
     (state: Record<string, any>) => {
       // eslint-disable-next-line react-hooks/exhaustive-deps, @typescript-eslint/no-unnecessary-condition
       if (!pointerInteracting.current) phi += 0.001;
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+
       state.phi = phi + r.get();
       state.width = width * 2;
       state.height = width * 2;
