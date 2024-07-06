@@ -1,17 +1,15 @@
 import type { Metadata, Viewport } from 'next';
+import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
 
 import { cn } from '@pbd/ui';
 
-import { fontOswald, fontQuattrocento } from '#/fonts';
-
-import '#/app/globals.css';
+import '#/app/css/globals.css';
 
 import { siteConfig } from '#/config/site';
 import { socialConfig } from '#/config/social';
 import { SITE_URL } from '#/lib/constants';
 import { Providers } from '#/lib/providers';
-import Footer from '#/ui/layout/footer';
-import Header from '#/ui/layout/header';
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -69,26 +67,24 @@ export const viewport: Viewport = {
   colorScheme: 'dark light',
 };
 
-interface RootLayoutProps {
+export default function RootLayout({
+  children,
+}: {
   children: React.ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
         className={cn(
-          'min-h-screen bg-background font-serif text-foreground antialiased',
-          fontQuattrocento.variable,
-          fontOswald.variable,
+          'min-h-screen bg-background font-sans text-foreground antialiased',
+          GeistSans.variable,
+          GeistMono.variable,
         )}
       >
         <Providers>
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex flex-1 flex-col">{children}</main>
+          <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
+            {children}
           </div>
-          <Footer />
         </Providers>
       </body>
     </html>
