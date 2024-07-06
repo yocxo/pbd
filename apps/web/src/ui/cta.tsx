@@ -1,3 +1,4 @@
+import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import Stripes from '~/public/images/stripes-dark.svg';
 
@@ -5,10 +6,7 @@ export default function Cta() {
   return (
     <section>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div
-          className="relative overflow-hidden rounded-2xl text-center shadow-xl before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-2xl before:bg-gray-900"
-          data-aos="zoom-y-out"
-        >
+        <div className="relative overflow-hidden rounded-2xl text-center shadow-xl before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-2xl before:bg-gray-900">
           {/* Glow */}
           <div
             className="absolute bottom-0 left-1/2 -z-10 -translate-x-1/2 translate-y-1/2"
@@ -23,7 +21,7 @@ export default function Cta() {
           >
             <Image
               className="max-w-none"
-              src={Stripes}
+              src={Stripes as StaticImageData}
               width={768}
               height={432}
               alt="Stripes"

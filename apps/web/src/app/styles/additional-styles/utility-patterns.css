@@ -1,0 +1,13 @@
+/* Buttons */
+.btn,
+.btn-sm {
+  @apply inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all;
+}
+
+.btn {
+  @apply px-4 py-[11px] shadow-lg;
+}
+
+.btn-sm {
+  @apply px-3 py-[5px] shadow;
+}

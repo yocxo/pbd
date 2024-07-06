@@ -25,10 +25,7 @@ export default function FeaturesHome() {
             </p>
           </div>
           {/* Illustration */}
-          <div
-            className="group relative mx-auto mb-32 flex w-full max-w-[500px] justify-center md:mb-36"
-            data-aos="zoom-y-out"
-          >
+          <div className="group relative mx-auto mb-32 flex w-full max-w-[500px] justify-center md:mb-36">
             <div className="absolute bottom-0 -z-10" aria-hidden="true">
               <div className="h-80 w-80 rounded-full bg-blue-500 opacity-70 blur-[160px]" />
             </div>

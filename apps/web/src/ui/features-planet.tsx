@@ -1,3 +1,4 @@
+import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import PlanetOverlayImg from '~/public/images/planet-overlay.svg';
 import PlanetTagImg01 from '~/public/images/planet-tag-01.png';
@@ -18,7 +19,7 @@ export default function FeaturesPlanet() {
             </h2>
           </div>
           {/* Planet */}
-          <div className="pb-16 md:pb-20" data-aos="zoom-y-out">
+          <div className="pb-16 md:pb-20">
             <div className="text-center">
               <div className="relative inline-flex rounded-full before:absolute before:inset-0 before:-z-10 before:scale-[.85] before:animate-[pulse_4s_cubic-bezier(.4,0,.6,1)_infinite] before:bg-gradient-to-b before:from-blue-900 before:to-sky-700/50 before:blur-3xl after:absolute after:inset-0 after:rounded-[inherit] after:[background:radial-gradient(closest-side,theme(colors.blue.500),transparent)]">
                 <Image
@@ -31,7 +32,7 @@ export default function FeaturesPlanet() {
                 <div className="pointer-events-none" aria-hidden="true">
                   <Image
                     className="absolute -right-64 -top-20 z-10 max-w-none"
-                    src={PlanetOverlayImg}
+                    src={PlanetOverlayImg as StaticImageData}
                     width={789}
                     height={755}
                     alt="Planet decoration"

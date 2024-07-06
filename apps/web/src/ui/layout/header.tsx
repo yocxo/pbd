@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-import Dropdown from '#/ui/dropdown';
 import Logo from './logo';
 import MobileMenu from './mobile-menu';
 
@@ -71,25 +70,6 @@ export default function Header() {
                 </Link>
               </li>
               {/* 1st level: hover */}
-              <Dropdown title="Extra">
-                {/* 2nd level: hover */}
-                <li>
-                  <Link
-                    href="/support"
-                    className="flex rounded-lg px-2 py-1.5 text-sm text-secondary-foreground transition hover:text-secondary-foreground/80"
-                  >
-                    Support center
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/apps"
-                    className="flex rounded-lg px-2 py-1.5 text-sm text-secondary-foreground transition hover:text-secondary-foreground/80"
-                  >
-                    Apps
-                  </Link>
-                </li>
-              </Dropdown>
             </ul>
           </nav>
 

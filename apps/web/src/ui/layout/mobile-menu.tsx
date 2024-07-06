@@ -53,7 +53,7 @@ export default function MobileMenu() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <rect
-            className="ease-[cubic-bezier(.5,.85,.25,1.1)] origin-center transition-all duration-300 group-[[aria-expanded=true]]:rotate-[315deg] group-[[aria-expanded=true]]:[x:0] group-[[aria-expanded=true]]:[y:7]"
+            className="ease-&lsqb;cubic-bezier(.5,.85,.25,1.1)&rsqb; origin-center transition-all duration-300 group-[[aria-expanded=true]]:rotate-[315deg] group-[[aria-expanded=true]]:[x:0] group-[[aria-expanded=true]]:[y:7]"
             y="2"
             x="7"
             width="9"
@@ -61,14 +61,14 @@ export default function MobileMenu() {
             rx="1"
           ></rect>
           <rect
-            className="ease-[cubic-bezier(.5,.85,.25,1.8)] origin-center transition-all duration-300 group-[[aria-expanded=true]]:rotate-45"
+            className="ease-&lsqb;cubic-bezier(.5,.85,.25,1.8)&rsqb; origin-center transition-all duration-300 group-[[aria-expanded=true]]:rotate-45"
             y="7"
             width="16"
             height="2"
             rx="1"
           ></rect>
           <rect
-            className="ease-[cubic-bezier(.5,.85,.25,1.1)] origin-center transition-all duration-300 group-[[aria-expanded=true]]:rotate-[135deg] group-[[aria-expanded=true]]:[x:0] group-[[aria-expanded=true]]:[y:7]"
+            className="ease-&lsqb;cubic-bezier(.5,.85,.25,1.1)&rsqb; origin-center transition-all duration-300 group-[[aria-expanded=true]]:rotate-[135deg] group-[[aria-expanded=true]]:[x:0] group-[[aria-expanded=true]]:[y:7]"
             y="12"
             width="9"
             height="2"
