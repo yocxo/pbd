@@ -1,5 +1,4 @@
 import { fileURLToPath } from 'url';
-import withMDX from '@next/mdx';
 import createJiti from 'jiti';
 
 // Import env files to validate at build time. Use jiti so we can load .ts files in here.
@@ -20,4 +19,4 @@ const config = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
 };
 
-export default withMDX()(config);
+export default config;

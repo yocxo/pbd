@@ -10,8 +10,6 @@ import { siteConfig } from '#/config/site';
 import { socialConfig } from '#/config/social';
 import { SITE_URL } from '#/lib/constants';
 import { Providers } from '#/lib/providers';
-import Footer from '#/ui/layout/footer';
-import Header from '#/ui/layout/header';
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -85,9 +83,7 @@ export default function RootLayout({
       >
         <Providers>
           <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
-            <Header />
             {children}
-            <Footer border={true} />
           </div>
         </Providers>
       </body>

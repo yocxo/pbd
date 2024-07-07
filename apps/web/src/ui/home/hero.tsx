@@ -1,6 +1,11 @@
-export default function Hero() {
+import Link from 'next/link';
+
+import { cn } from '@pbd/ui';
+import { buttonVariants } from '@pbd/ui/button';
+
+export function Hero() {
   return (
-    <div className="bg-backround relative isolate overflow-hidden md:min-h-[90vh]">
+    <div className="relative isolate overflow-hidden rounded-2xl border bg-card md:min-h-[90vh] lg:rounded-3xl">
       <svg
         aria-hidden="true"
         className="absolute inset-0 -z-10 h-full w-full stroke-border [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
@@ -17,7 +22,7 @@ export default function Hero() {
             <path d="M.5 200V.5H200" fill="none" />
           </pattern>
         </defs>
-        <svg x="50%" y={-1} className="overflow-visible fill-primary/5">
+        <svg x="50%" y={-1} className="overflow-visible fill-primary/10">
           <path
             d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
             strokeWidth={0}
@@ -30,38 +35,37 @@ export default function Hero() {
           strokeWidth={0}
         />
       </svg>
-      <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+      <div className="mx-auto max-w-2xl px-6 py-32 sm:py-48 md:max-w-5xl md:px-8 lg:py-56">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-          <div className="relative rounded-full border px-3 py-1 text-sm leading-6 text-muted-foreground">
-            Announcing our next round of funding.{' '}
-            <a href="#" className="font-semibold text-alternate">
+          <div className="relative rounded-md border px-3 py-1 text-sm leading-6 text-muted-foreground">
+            Pale Blue Dot releases white paper on enterprise AI.{' '}
+            <a href="/blog" className="font-semibold text-alternate">
               <span aria-hidden="true" className="absolute inset-0" />
               Read more <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </div>
         <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-secondary-foreground sm:text-7xl">
-            Data to enrich your online business
+          <h1 className="text-balance text-secondary-foreground">
+            <span className="block text-6xl font-bold sm:text-[160px]">
+              Redefine impossible
+            </span>
           </h1>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-            lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-            fugiat aliqua.
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
+            For those already at the top, we engineer the next summit. Our
+            strategies push the boundaries of what's achievable, ensuring you
+            stay lightyears ahead.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <a
-              href="#"
-              className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            <Link
+              href="/book"
+              className={cn(
+                buttonVariants({ size: 'lg', variant: 'primary' }),
+                '',
+              )}
             >
-              Get started
-            </a>
-            <a
-              href="#"
-              className="text-sm font-semibold leading-6 text-muted-foreground"
-            >
-              Learn more <span aria-hidden="true">→</span>
-            </a>
+              Get in Touch
+            </Link>
           </div>
         </div>
       </div>
