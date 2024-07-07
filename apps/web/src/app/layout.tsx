@@ -4,7 +4,7 @@ import { GeistSans } from 'geist/font/sans';
 
 import { cn } from '@pbd/ui';
 
-import '#/app/styles/globals.css';
+import '#/styles/globals.css';
 
 import { siteConfig } from '#/config/site';
 import { socialConfig } from '#/config/social';
@@ -76,7 +76,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
         className={cn(
-          'min-h-screen bg-background font-sans text-foreground antialiased',
+          'min-h-screen bg-background font-sans font-medium text-foreground antialiased',
           GeistSans.variable,
           GeistMono.variable,
         )}

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import overview from '#/ui/vision/overview.png';
 import { Card } from '#/ui/vision/ui';
 
 export function SectionSolution() {
@@ -136,7 +135,7 @@ export function SectionSolution() {
 
           <div className="ml-auto w-full">
             <Image
-              src={overview}
+              src="/images/ai.jpg"
               alt="Overview"
               width={650}
               height={875}

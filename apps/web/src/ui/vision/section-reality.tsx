@@ -24,7 +24,7 @@ export function SectionReality() {
           />
         </div>
         <div className="container flex min-h-screen flex-col py-32 sm:py-48 lg:py-56">
-          <h1 className="text-balance px-4 text-center text-[45px] font-bold leading-none text-white md:px-0 md:text-[175px]">
+          <h1 className="text-balance px-4 text-center text-[45px] font-semibold leading-none text-white md:px-0 md:text-[175px]">
             Your biggest threat <span className="text-primary">is not</span>{' '}
             what you think
           </h1>

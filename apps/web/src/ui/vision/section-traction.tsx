@@ -6,7 +6,6 @@ import Link from 'next/link';
 
 import { Button } from '@pbd/ui/button';
 
-import customers from '#/ui/vision/customers.png';
 import { Card } from '#/ui/vision/ui';
 
 export function SectionTraction() {
@@ -129,7 +128,13 @@ export function SectionTraction() {
               </a>
             </div>
 
-            <Image src={customers} width={698} alt="Customers" quality={100} />
+            <Image
+              src="/images/ai.jpg"
+              width={698}
+              height={698}
+              alt="Customers"
+              quality={100}
+            />
           </div>
         </div>
       </div>

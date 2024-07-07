@@ -15,7 +15,7 @@ export function Card({ title, description, children, className }: CardProps) {
         className,
       )}
     >
-      {title && <h2 className="text-2xl font-bold">{title}</h2>}
+      {title && <h2 className="text-2xl font-semibold">{title}</h2>}
       {description && (
         <p className="text-pretty text-center text-muted-foreground">
           {description}

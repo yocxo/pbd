@@ -55,19 +55,19 @@ export function Why() {
         <GlobeHero />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
               Thriving through uncertainty
             </h2>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              In a world of constant disruption, we help you build an enterprise
-              that doesn't just survive challenges, it uses them as fuel for
-              unprecedented growth and success.
+              In a world of constant disruption, we help ensure that your
+              enterprise doesn&apos;t just survive challenges, it uses them as
+              fuel for unprecedented growth and success.
             </p>
           </div>
           <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {outcomes.map((outcome) => (
               <div key={outcome.name}>
-                <dt className="font-semibold text-foreground">
+                <dt className="text-lg font-semibold text-foreground">
                   {outcome.name}
                 </dt>
                 <dd className="mt-1 text-muted-foreground">
