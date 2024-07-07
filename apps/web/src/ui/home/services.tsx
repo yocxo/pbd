@@ -26,13 +26,13 @@ export function Services() {
             <div className="absolute bottom-0 -z-10" aria-hidden="true">
               <div className="h-80 w-80 rounded-full bg-primary opacity-70 blur-[160px]" />
             </div>
-            <div className="aspect-video w-full -rotate-1 rounded-2xl bg-card px-5 py-3 shadow-xl transition duration-300 group-hover:-rotate-0">
+            <div className="aspect-video w-full -rotate-1 rounded-2xl border bg-card px-5 py-3 shadow-xl transition duration-300 group-hover:-rotate-0">
               <div className="relative mb-8 flex items-center justify-between before:block before:h-[9px] before:w-[41px] before:bg-[length:16px_9px] before:[background-image:radial-gradient(circle_at_4.5px_4.5px,_hsl(var(--muted-foreground))_4.5px,_transparent_0)] after:w-[41px]">
                 <span className="text-[13px] font-semibold">
                   AI Regession Analysis
                 </span>
               </div>
-              <div className="font-mono text-sm text-gray-500 blur-sm transition duration-300 group-hover:blur-none [&_span]:opacity-0">
+              <div className="whitespace-pre-wrap break-words font-mono text-sm text-muted-foreground blur-sm transition duration-300 group-hover:blur-none [&_span]:opacity-0">
                 <span className="animate-[code-1_10s_infinite] text-foreground">
                   import tensorflow as tf
                 </span>{' '}
