@@ -18,19 +18,19 @@ export function GlobeHero() {
     emissiveIntensity: 0.1,
     shininess: 0.9,
     polygonColor: 'rgba(255,255,255,0.7)',
-    ambientLight: '#38bdf8',
+    ambientLight: '#1746A2',
     directionalLeftLight: '#ffffff',
     directionalTopLight: '#ffffff',
-    pointLight: '#ffffff',
+    pointLight: '#5F9DF7',
     arcTime: 2000,
     arcLength: 0.9,
     rings: 1,
     maxRings: 3,
-    initialPosition: { lat: 24.827, lng: 121.4737 },
+    initialPosition: { lat: 24.8607, lng: 67.0011 },
     autoRotate: true,
     autoRotateSpeed: 0.1,
   };
-  const colors = ['#F6DA8D', '#F0C142', '#E2AB12'];
+  const colors = ['#F6DA8D', '#F0C142', '#FF371D'];
   const sampleArcs = [
     {
       order: 1,

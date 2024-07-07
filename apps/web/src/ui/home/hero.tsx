@@ -36,7 +36,7 @@ export function Hero() {
         />
       </svg>
       <div className="mx-auto max-w-2xl px-6 py-32 sm:py-48 md:max-w-5xl md:px-8 lg:py-56">
-        <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+        <div className="hidden sm:mb-8 sm:justify-center">
           <div className="relative rounded-md border px-3 py-1 text-sm leading-6 text-muted-foreground">
             Pale Blue Dot releases white paper on enterprise AI.{' '}
             <a href="/blog" className="font-semibold text-alternate">
@@ -47,7 +47,7 @@ export function Hero() {
         </div>
         <div className="text-center">
           <h1 className="text-balance text-secondary-foreground">
-            <span className="block text-6xl font-bold sm:text-[160px]">
+            <span className="block text-7xl font-semibold lg:text-[160px]">
               Redefine impossible
             </span>
           </h1>

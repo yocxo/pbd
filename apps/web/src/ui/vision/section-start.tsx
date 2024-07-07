@@ -39,7 +39,7 @@ export function SectionStart() {
           <div className="ml-4 md:ml-8">
             <Logo className="w-24 md:w-32" />
           </div>
-          <h1 className="ml-4 pb-32 text-6xl font-bold uppercase md:ml-8 md:text-[150px]">
+          <h1 className="ml-4 pb-32 text-6xl font-semibold uppercase md:ml-8 md:text-[150px]">
             Pale Blue Dot
           </h1>
         </div>

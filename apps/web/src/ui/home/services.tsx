@@ -13,7 +13,7 @@ export function Services() {
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="mx-auto max-w-3xl pb-24 text-center md:pb-28">
-            <h2 className="mb-4 text-3xl font-bold md:text-5xl">
+            <h2 className="mb-4 text-3xl font-semibold md:text-5xl">
               Beyond conventional boundaries
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -87,9 +87,9 @@ export function Services() {
             </div>
           </div>
           {/* Grid */}
-          <div className="grid overflow-hidden border-y [border-image:linear-gradient(to_right,transparent,hsl(var(--border)),transparent)_1] lg:grid-cols-3 [&>*]:relative [&>*]:p-6 [&>*]:before:absolute [&>*]:before:bg-gradient-to-b [&>*]:before:from-transparent [&>*]:before:via-border/10 [&>*]:before:[block-size:100%] [&>*]:before:[inline-size:1px] [&>*]:before:[inset-block-start:0] [&>*]:before:[inset-inline-start:-1px] md:[&>*]:px-10 md:[&>*]:py-12">
+          <div className="grid overflow-hidden border-y [border-image:linear-gradient(to_right,transparent,hsl(var(--border)),transparent)_1] lg:grid-cols-3 [&>*]:relative [&>*]:p-6 [&>*]:before:absolute [&>*]:before:bg-gradient-to-b [&>*]:before:from-border/80 [&>*]:before:via-border [&>*]:before:[block-size:100%] [&>*]:before:[inline-size:1px] [&>*]:before:[inset-block-start:0] [&>*]:before:[inset-inline-start:-1px] md:[&>*]:px-10 md:[&>*]:py-12">
             <article>
-              <h3 className="mb-2 flex items-center space-x-2 font-semibold">
+              <h3 className="mb-2 flex items-center space-x-2 text-lg font-semibold">
                 Economic agility
               </h3>
               <p className="text-muted-foreground">
@@ -99,7 +99,7 @@ export function Services() {
               </p>
             </article>
             <article>
-              <h3 className="mb-2 flex items-center space-x-2 font-semibold">
+              <h3 className="mb-2 flex items-center space-x-2 text-lg font-semibold">
                 Accelerated digital evolution
               </h3>
               <p className="text-muted-foreground">
@@ -109,7 +109,7 @@ export function Services() {
               </p>
             </article>
             <article>
-              <h3 className="mb-2 flex items-center space-x-2 font-semibold">
+              <h3 className="mb-2 flex items-center space-x-2 text-lg font-semibold">
                 Talent magnetism
               </h3>
               <p className="text-muted-foreground">

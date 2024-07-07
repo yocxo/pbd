@@ -7,13 +7,15 @@ import Footer from '#/ui/layout/footer';
 
 export default function Home() {
   return (
-    <div className="p-2 md:p-4">
-      <Hero />
-      <Quote />
-      <Why />
-      <Services />
-      <Cta />
+    <>
+      <div className="p-2 md:p-4">
+        <Hero />
+        <Quote />
+        <Why />
+        <Services />
+        <Cta />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
