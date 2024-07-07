@@ -1,48 +1,73 @@
-import Globe from './globe';
+import Link from 'next/link';
 
-export default function Hero() {
+import { cn } from '@pbd/ui';
+import { buttonVariants } from '@pbd/ui/button';
+
+export function Hero() {
   return (
-    <div className="relative isolate pt-6 md:pt-14">
-      <div
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+    <div className="relative isolate overflow-hidden rounded-2xl border bg-card md:min-h-[90vh] lg:rounded-3xl">
+      <svg
         aria-hidden="true"
+        className="absolute inset-0 -z-10 h-full w-full stroke-border [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
       >
-        <div
-          className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-alternate opacity-5 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-          }}
+        <defs>
+          <pattern
+            x="50%"
+            y={-1}
+            id="983e3e4c-de6d-4c3f-8d64-b9761d1534cc"
+            width={200}
+            height={200}
+            patternUnits="userSpaceOnUse"
+          >
+            <path d="M.5 200V.5H200" fill="none" />
+          </pattern>
+        </defs>
+        <svg x="50%" y={-1} className="overflow-visible fill-primary/10">
+          <path
+            d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+            strokeWidth={0}
+          />
+        </svg>
+        <rect
+          fill="url(#983e3e4c-de6d-4c3f-8d64-b9761d1534cc)"
+          width="100%"
+          height="100%"
+          strokeWidth={0}
         />
-      </div>
-      <div className="py-24 sm:py-32 lg:pb-40">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="font-display text-5xl uppercase tracking-tight text-foreground sm:text-7xl">
-              Gain new perspective
-            </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-pretty text-xl leading-8 text-muted-foreground">
-              Pale Blue Dot is an enterprise partner. We enhance competitive
-              edge through outcome-driven strategies that focus on people,
-              processes, and technology.
-            </p>
-            <div className="relative mx-auto flex h-full w-full max-w-[32rem] items-center justify-center px-40 pb-40 pt-8 md:pb-60">
-              <Globe className="z-10 md:top-28" />
-            </div>
+      </svg>
+      <div className="mx-auto max-w-2xl px-6 py-32 sm:py-48 md:max-w-5xl md:px-8 lg:py-56">
+        <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+          <div className="relative rounded-md border px-3 py-1 text-sm leading-6 text-muted-foreground">
+            Pale Blue Dot releases white paper on enterprise AI.{' '}
+            <a href="/blog" className="font-semibold text-alternate">
+              <span aria-hidden="true" className="absolute inset-0" />
+              Read more <span aria-hidden="true">&rarr;</span>
+            </a>
           </div>
         </div>
-      </div>
-      <div
-        className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-        aria-hidden="true"
-      >
-        <div
-          className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-primary to-alternate opacity-5 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-          }}
-        />
+        <div className="text-center">
+          <h1 className="text-balance text-secondary-foreground">
+            <span className="block text-6xl font-bold sm:text-[160px]">
+              Redefine impossible
+            </span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
+            For those already at the top, we engineer the next summit. Our
+            strategies push the boundaries of what's achievable, ensuring you
+            stay lightyears ahead.
+          </p>
+          <div className="mt-10 flex items-center justify-center gap-x-6">
+            <Link
+              href="/book"
+              className={cn(
+                buttonVariants({ size: 'lg', variant: 'primary' }),
+                '',
+              )}
+            >
+              Get in Touch
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
