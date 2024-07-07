@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Ai from '#/ui/vision/ai.jpg';
 import { Card } from '#/ui/vision/ui';
 
 export function SectionAi() {
@@ -27,7 +26,7 @@ export function SectionAi() {
           </div>
           <div className="rounded-2xl">
             <Image
-              src={Ai}
+              src="/images/ai.jpg"
               alt="Reciept"
               width={650}
               height={875}

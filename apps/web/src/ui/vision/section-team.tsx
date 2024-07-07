@@ -1,10 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import founders from '#/ui/vision/founders.png';
-import pontus from '#/ui/vision/pontus.png';
 import { Card } from '#/ui/vision/ui';
-import viktor from '#/ui/vision/viktor.png';
 
 export function SectionTeam() {
   return (
@@ -20,7 +17,7 @@ export function SectionTeam() {
           <div className="space-y-8">
             <Card className="items-start space-y-0">
               <Image
-                src={pontus}
+                src="/images/ai.jpg"
                 alt="Pontus"
                 width={76}
                 height={76}
@@ -40,7 +37,7 @@ export function SectionTeam() {
 
             <Card className="items-start space-y-0">
               <Image
-                src={viktor}
+                src="/images/ai.jpg"
                 alt="Viktor"
                 width={76}
                 height={76}
@@ -64,7 +61,7 @@ export function SectionTeam() {
           </div>
           <div>
             <Image
-              src={founders}
+              src="/images/ai.jpg"
               alt="Founders"
               width={650}
               height={875}

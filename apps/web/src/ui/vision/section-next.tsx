@@ -1,11 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import app from '#/ui/vision/app.png';
-import apps from '#/ui/vision/apps.png';
-import engine from '#/ui/vision/engine.png';
-import invoice from '#/ui/vision/invoice.png';
-import ai from '#/ui/vision/midday-ai.png';
 import { Card } from '#/ui/vision/ui';
 
 export function SectionNext() {
@@ -23,7 +18,13 @@ export function SectionNext() {
             <Card className="min-h-[370px]">
               <h2 className="text-xl">Invoice</h2>
               <span />
-              <Image src={invoice} width={362} alt="Invoice" quality={100} />
+              <Image
+                src="/images/invoice.png"
+                width={362}
+                height={362}
+                alt="Invoice"
+                quality={100}
+              />
             </Card>
 
             <a
@@ -35,7 +36,13 @@ export function SectionNext() {
               <Card className="min-h-[370px]">
                 <h2 className="text-xl">Engine</h2>
                 <span className="underline">Read more</span>
-                <Image src={engine} width={362} alt="Engine" quality={100} />
+                <Image
+                  src="/images/ai.jpg"
+                  width={362}
+                  height={362}
+                  alt="Engine"
+                  quality={100}
+                />
               </Card>
             </a>
           </div>
@@ -43,15 +50,22 @@ export function SectionNext() {
             <Card className="min-h-[370px]">
               <h2 className="text-xl">Midday AI</h2>
               <span />
-              <Image src={ai} width={362} alt="Midday AI" quality={100} />
+              <Image
+                src="/images/ai.jpg"
+                width={362}
+                height={362}
+                alt="Midday AI"
+                quality={100}
+              />
             </Card>
 
             <Card className="min-h-[370px]">
               <h2 className="text-xl">Apps & integrations</h2>
               <span />
               <Image
-                src={apps}
+                src="/images/ai.jpg"
                 width={362}
+                height={362}
                 alt="Apps & integrations"
                 quality={100}
               />
@@ -61,7 +75,13 @@ export function SectionNext() {
           <div className="ml-auto h-full w-full max-w-[820px] border border-border bg-[#0C0C0C] p-6">
             <h2 className="mb-24 block text-xl">Native app</h2>
             <span />
-            <Image src={app} width={698} alt="App" quality={100} />
+            <Image
+              src="/images/ai.jpg"
+              width={698}
+              height={698}
+              alt="App"
+              quality={100}
+            />
           </div>
         </div>
       </div>
