@@ -8,17 +8,17 @@ export default function Cta() {
     <section>
       <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="relative isolate overflow-hidden rounded-2xl bg-primary px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
-          <h2 className="mx-auto max-w-2xl text-3xl font-semibold text-primary-foreground sm:text-4xl">
+          <h2 className="mx-auto max-w-3xl text-4xl font-semibold text-primary-foreground sm:text-5xl">
             Shape tomorrow's markets today
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-secondary">
-            In a world of constant flux, market leaders don't just adapt—they
-            anticipate and create. Our strategies empower you to turn global
+            In a world of constant flux, market leaders don't just adapt, they
+            anticipate and create. We partner to help you to turn global
             challenges into catalysts for unprecedented growth.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
-              href="/book"
+              href="/vision"
               className={cn(
                 buttonVariants({ size: 'lg', variant: 'secondary' }),
                 '',

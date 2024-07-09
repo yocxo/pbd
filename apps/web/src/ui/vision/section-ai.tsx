@@ -26,7 +26,7 @@ export function SectionAi() {
           </div>
           <div className="rounded-2xl">
             <Image
-              src="/images/ai.jpg"
+              src="/ai.jpg"
               alt="Reciept"
               width={650}
               height={875}

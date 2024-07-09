@@ -51,17 +51,17 @@ export function Hero() {
               Redefine impossible
             </span>
           </h1>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
+          <p className="mx-auto mt-6 max-w-3xl text-pretty text-lg leading-8 text-muted-foreground lg:text-xl">
             For those already at the top, we engineer the next summit. Our
             strategies push the boundaries of what's achievable, ensuring you
             stay lightyears ahead.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
-              href="/book"
+              href="/vision"
               className={cn(
                 buttonVariants({ size: 'lg', variant: 'primary' }),
-                '',
+                'text-white dark:text-background',
               )}
             >
               Get in Touch

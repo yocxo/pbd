@@ -1,5 +1,28 @@
 import Image from 'next/image';
 
+interface Service {
+  title: string;
+  description: string;
+}
+
+const services: Service[] = [
+  {
+    title: 'Economic agility',
+    description:
+      'Transform economic volatility into strategic advantage, optimizing operations and investments to thrive amidst uncertainty.',
+  },
+  {
+    title: 'Accelerated digital evolution',
+    description:
+      'Modernize your core systems without disruption, embracing cutting-edge AI technology to enhance customer experience and operational efficiency.',
+  },
+  {
+    title: 'Talent magnetism',
+    description:
+      'Cultivate a dynamic environment that attracts, retains, and develops world-class talent, fueling your continued market leadership.',
+  },
+];
+
 export function Services() {
   return (
     <section className="relative">
@@ -11,7 +34,6 @@ export function Services() {
       </div>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="py-12 md:py-20">
-          {/* Section header */}
           <div className="mx-auto max-w-3xl pb-24 text-center md:pb-28">
             <h2 className="mb-4 text-3xl font-semibold md:text-5xl">
               Beyond conventional boundaries
@@ -21,7 +43,6 @@ export function Services() {
               your enterprise sets new benchmarks for others to aspire to.
             </p>
           </div>
-          {/* Illustration */}
           <div className="group relative mx-auto mb-32 flex w-full max-w-[500px] justify-center md:mb-36">
             <div className="absolute bottom-0 -z-10" aria-hidden="true">
               <div className="h-80 w-80 rounded-full bg-primary opacity-70 blur-[160px]" />
@@ -86,38 +107,17 @@ export function Services() {
               </div>
             </div>
           </div>
-          {/* Grid */}
           <div className="grid overflow-hidden border-y [border-image:linear-gradient(to_right,transparent,hsl(var(--border)),transparent)_1] lg:grid-cols-3 [&>*]:relative [&>*]:p-6 [&>*]:before:absolute [&>*]:before:bg-gradient-to-b [&>*]:before:from-border/80 [&>*]:before:via-border [&>*]:before:[block-size:100%] [&>*]:before:[inline-size:1px] [&>*]:before:[inset-block-start:0] [&>*]:before:[inset-inline-start:-1px] md:[&>*]:px-10 md:[&>*]:py-12">
-            <article>
-              <h3 className="mb-2 flex items-center space-x-2 text-lg font-semibold">
-                Economic agility
-              </h3>
-              <p className="text-muted-foreground">
-                Transform economic volatility into strategic advantage,
-                optimizing operations and investments to thrive amidst
-                uncertainty.
-              </p>
-            </article>
-            <article>
-              <h3 className="mb-2 flex items-center space-x-2 text-lg font-semibold">
-                Accelerated digital evolution
-              </h3>
-              <p className="text-muted-foreground">
-                Modernize your core systems without disruption, harnessing
-                cutting-edge AI technology to enhance customer experience and
-                operational efficiency.
-              </p>
-            </article>
-            <article>
-              <h3 className="mb-2 flex items-center space-x-2 text-lg font-semibold">
-                Talent magnetism
-              </h3>
-              <p className="text-muted-foreground">
-                Cultivate a dynamic environment that attracts, retains, and
-                develops world-class talent, fueling your continued market
-                leadership.
-              </p>
-            </article>
+            {services.map((service, index) => (
+              <article key={index}>
+                <h3 className="mb-2 flex items-center space-x-2 text-lg font-semibold">
+                  {service.title}
+                </h3>
+                <p className="text-pretty text-muted-foreground">
+                  {service.description}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </div>
