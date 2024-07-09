@@ -17,7 +17,7 @@ import {
   SectionNot6,
 } from '#/ui/vision/section-not';
 import { SectionReality } from '#/ui/vision/section-reality';
-import { SectionStart } from '#/ui/vision/section-start';
+import { Start } from '#/ui/vision/start';
 
 export function VisionCarousel() {
   const [api, setApi] = useState<CarouselApi>();
@@ -39,24 +39,24 @@ export function VisionCarousel() {
     <Carousel className="relative min-h-full w-full" setApi={setApi}>
       <CarouselContent>
         <CarouselItem>
-          <SectionStart />
+          <Start />
         </CarouselItem>
         <CarouselItem>
           <SectionReality />
         </CarouselItem>
-        <CarouselItem className="bg-alternate">
+        <CarouselItem className="bg-primary">
           <SectionNot1 />
         </CarouselItem>
-        <CarouselItem className="bg-primary">
+        <CarouselItem className="bg-alternate">
           <SectionNot2 />
         </CarouselItem>
         <CarouselItem>
           <SectionNot3 />
         </CarouselItem>
-        <CarouselItem className="bg-alternate">
+        <CarouselItem className="bg-primary">
           <SectionNot4 />
         </CarouselItem>
-        <CarouselItem className="bg-primary">
+        <CarouselItem className="bg-muted">
           <SectionNot5 />
         </CarouselItem>
         <CarouselItem>

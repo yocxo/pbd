@@ -95,11 +95,11 @@ export function CarouselToolbar({ views }: Props) {
         <AnimatePresence>
           <motion.div animate={{ y: views > 0 ? 0 : 100 }} initial={{ y: 100 }}>
             <TooltipProvider delayDuration={20}>
-              <div className="flex h-10 items-center space-x-4 rounded-md border-border bg-[#0B0909] px-4 py-2 shadow-md backdrop-blur-lg backdrop-filter">
+              <div className="flex h-10 items-center space-x-4 rounded-md border-border bg-muted px-4 py-2 shadow-md backdrop-blur-lg backdrop-filter">
                 <Tooltip>
                   <TooltipTrigger>
-                    <div className="flex items-center space-x-2 border-r-[1px] border-border pr-4 text-white">
-                      <Icons.Visibility size={18} className="text-primary" />
+                    <div className="flex cursor-not-allowed items-center space-x-2 border-r-[1px] border-border pr-4 text-white">
+                      <Icons.Visibility size={18} className="text-alternate" />
 
                       <span className="text-sm">
                         {Intl.NumberFormat('en', {
@@ -122,7 +122,7 @@ export function CarouselToolbar({ views }: Props) {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <button type="button" onClick={() => api.scrollTo(100)}>
-                      <Icons.Calendar size={18} className="text-primary" />
+                      <Icons.Calendar size={18} className="text-alternate" />
                     </button>
                   </TooltipTrigger>
                   <TooltipContent
@@ -138,7 +138,7 @@ export function CarouselToolbar({ views }: Props) {
                     <DialogTrigger asChild>
                       <Icons.Share
                         size={18}
-                        className="-mt-[1px] text-primary"
+                        className="-mt-[1px] text-alternate"
                       />
                     </DialogTrigger>
                   </TooltipTrigger>

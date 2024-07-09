@@ -14,7 +14,7 @@ export function GlobeHero() {
     showAtmosphere: true,
     atmosphereColor: '#FFFFFF',
     atmosphereAltitude: 0.1,
-    emissive: '#062056',
+    emissive: '#150F1A',
     emissiveIntensity: 0.1,
     shininess: 0.9,
     polygonColor: 'rgba(255,255,255,0.7)',
@@ -30,8 +30,8 @@ export function GlobeHero() {
     autoRotate: true,
     autoRotateSpeed: 0.1,
   };
-  const colors = ['#F6DA8D', '#F0C142', '#FF371D'];
-  const sampleArcs = [
+  const colors = ['#49977B', '#5AAF90', '#49977B'];
+  const majorHubs = [
     {
       order: 1,
       startLat: -19.885592,
@@ -400,7 +400,7 @@ export function GlobeHero() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 w-full select-none" />
         <div className="absolute inset-0 z-10 mb-16 h-full w-full">
           {/* @ts-expect-error Need to fix */}
-          <World data={sampleArcs} globeConfig={globeConfig} />
+          <World data={majorHubs} globeConfig={globeConfig} />
         </div>
       </div>
     </div>
