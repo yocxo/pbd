@@ -4,15 +4,12 @@ import { cn } from '@pbd/ui';
 
 interface LogoProps {
   className?: string;
+  href?: string;
 }
 
-export default function Logo({ className }: LogoProps) {
-  return (
-    <Link
-      href="/"
-      className={cn('inline-flex', className)}
-      aria-label="A round circle representing Pale Blue Dot's Logo"
-    >
+export default function Logo({ className, href }: LogoProps) {
+  const LogoContent = (
+    <>
       <span className="sr-only">Pale Blue Dot</span>
       <svg
         className="h-full w-full"
@@ -24,6 +21,20 @@ export default function Logo({ className }: LogoProps) {
           <circle cx="36" cy="36.0001" r="28" fill="#61b2e4" />
         </g>
       </svg>
-    </Link>
+    </>
   );
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={cn('inline-flex', className)}
+        aria-label="A round circle representing Pale Blue Dot's Logo"
+      >
+        {LogoContent}
+      </Link>
+    );
+  }
+
+  return <div className={cn('inline-flex', className)}>{LogoContent}</div>;
 }

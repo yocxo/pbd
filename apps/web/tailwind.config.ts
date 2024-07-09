@@ -29,6 +29,8 @@ export default {
         '5xl': ['3rem', { lineHeight: '1', letterSpacing: '-0.037em' }],
         '6xl': ['4rem', { lineHeight: '1', letterSpacing: '-0.037em' }],
         '7xl': ['4.5rem', { lineHeight: '1', letterSpacing: '-0.037em' }],
+        '8xl': ['5.0rem', { lineHeight: '1', letterSpacing: '-0.037em' }],
+        '9xl': ['6.0rem', { lineHeight: '1', letterSpacing: '-0.037em' }],
       },
       keyframes: {
         'code-1': {

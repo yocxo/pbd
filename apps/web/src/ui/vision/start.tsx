@@ -1,11 +1,10 @@
 import Logo from '#/ui/shared/logo';
+import { PbdContainer } from '../layout/pbd-container';
 
-export function SectionStart() {
+export function Start() {
   return (
-    <div className="relative min-h-screen">
-      <span className="absolute right-4 top-4 text-lg md:right-8">Vision</span>
-
-      <div className="container relative flex min-h-screen flex-col justify-between py-8">
+    <PbdContainer>
+      <div className="relative isolate flex min-h-[90vh] items-center justify-center overflow-hidden rounded-2xl border bg-card lg:rounded-3xl">
         <svg
           aria-hidden="true"
           className="absolute inset-0 -z-10 h-full w-full stroke-border [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
@@ -35,15 +34,10 @@ export function SectionStart() {
             strokeWidth={0}
           />
         </svg>
-        <div className="container relative flex min-h-screen flex-col justify-between py-8">
-          <div className="ml-4 md:ml-8">
-            <Logo className="w-24 md:w-32" />
-          </div>
-          <h1 className="ml-4 pb-32 text-6xl font-semibold uppercase md:ml-8 md:text-[150px]">
-            Pale Blue Dot
-          </h1>
+        <div className="w-4/5 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5">
+          <Logo className="h-auto w-full" />
         </div>
       </div>
-    </div>
+    </PbdContainer>
   );
 }

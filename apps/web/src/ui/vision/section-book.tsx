@@ -8,8 +8,8 @@ export function SectionBook() {
       <div className="absolute left-4 right-4 top-4 flex justify-between text-lg md:left-8 md:right-8">
         <span>Book a meeting</span>
       </div>
-      <div className="container flex min-h-screen flex-col justify-center">
-        <div className="h-full px-4 md:h-[800px] md:px-0">
+      <div className="container flex flex-col justify-start pt-16 md:justify-center md:pt-0">
+        <div className="h-[calc(100vh-6rem)] overflow-y-auto px-4 py-8 md:h-[600px] md:overflow-y-visible md:px-0 md:py-48">
           <Cal
             calLink="palebluedot/30min"
             config={{

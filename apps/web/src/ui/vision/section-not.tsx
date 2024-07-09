@@ -5,7 +5,7 @@ export function SectionNot1() {
     <div className="relative min-h-screen">
       <Logo className="absolute left-6 top-6 z-50 h-8 w-auto sm:size-10 md:left-8 md:top-8" />
       <div className="container flex min-h-screen flex-col py-32 sm:py-48 lg:py-56">
-        <h1 className="text-balance px-4 text-center text-[45px] font-semibold leading-none text-primary-foreground md:px-0 lg:text-[120px]">
+        <h1 className="mx-auto max-w-4xl text-balance px-4 text-center text-5xl font-semibold leading-none text-[#0d0a07] md:px-0 md:text-9xl">
           It&apos;s not competitive forces...
         </h1>
       </div>
@@ -18,7 +18,7 @@ export function SectionNot2() {
     <div className="relative min-h-screen">
       <Logo className="absolute left-6 top-6 z-50 h-8 w-auto sm:size-10 md:left-8 md:top-8" />
       <div className="container flex min-h-screen flex-col py-32 sm:py-48 lg:py-56">
-        <h1 className="text-balance px-4 text-center text-[45px] font-semibold leading-none md:px-0 lg:text-[120px]">
+        <h1 className="mx-auto max-w-4xl text-balance px-4 text-center text-5xl font-semibold leading-none text-[#0d0a07] md:px-0 md:text-9xl">
           The economy, regulation, or technological obsolescence
         </h1>
       </div>
@@ -31,17 +31,13 @@ export function SectionNot3() {
     <div className="relative min-h-screen">
       <Logo className="absolute left-6 top-6 z-50 h-8 w-auto sm:size-10 md:left-8 md:top-8" />
       <div className="container flex min-h-screen flex-col py-32 sm:py-48 lg:py-56">
-        <h1 className="text-balance px-4 text-center text-[45px] font-semibold leading-none line-through md:px-0 lg:text-[100px]">
+        <h1 className="mx-auto max-w-4xl text-balance px-4 text-center text-5xl font-semibold leading-none text-foreground line-through md:px-0 md:text-9xl">
           <br />
           Talent shortage,
           <br />
           Supply disruptions,
           <br />
-          Cybersecurity,
-          <br />
-          Consumer behavior,
-          <br />
-          Geopolitical tension?
+          Cybersecurity?
         </h1>
       </div>
     </div>
@@ -53,7 +49,7 @@ export function SectionNot4() {
     <div className="relative min-h-screen">
       <Logo className="absolute left-6 top-6 z-50 h-8 w-auto sm:size-10 md:left-8 md:top-8" />
       <div className="container flex min-h-screen flex-col py-32 sm:py-48 lg:py-56">
-        <h1 className="text-balance px-4 text-center text-[45px] font-semibold leading-none text-primary-foreground md:px-0 lg:text-[150px]">
+        <h1 className="mx-auto max-w-4xl text-balance px-4 text-center text-5xl font-semibold leading-none text-[#0d0a07] md:px-0 md:text-9xl">
           Your greatest threat?
         </h1>
       </div>
@@ -66,8 +62,8 @@ export function SectionNot5() {
     <div className="relative min-h-screen">
       <Logo className="absolute left-6 top-6 z-50 h-8 w-auto sm:size-10 md:left-8 md:top-8" />
       <div className="container flex min-h-screen flex-col py-32 sm:py-48 lg:py-56">
-        <h1 className="text-balance px-4 text-center text-[45px] font-semibold leading-none text-primary-foreground md:px-0 lg:text-[150px]">
-          The limits of your imagination
+        <h1 className="mx-auto max-w-4xl text-balance px-4 text-center text-5xl font-semibold leading-none text-white md:px-0 md:text-9xl">
+          The limits of <span className="text-primary">your imagination</span>
         </h1>
       </div>
     </div>
