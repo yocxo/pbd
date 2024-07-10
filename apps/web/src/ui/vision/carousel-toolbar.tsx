@@ -101,7 +101,7 @@ export function CarouselToolbar({ views }: Props) {
                     <div className="flex cursor-not-allowed items-center space-x-2 border-r-[1px] border-border pr-4 text-white">
                       <Icons.Visibility size={18} className="text-alternate" />
 
-                      <span className="text-sm">
+                      <span className="text-sm text-foreground dark:text-white">
                         {Intl.NumberFormat('en', {
                           notation: 'compact',
                           minimumFractionDigits: 0,
@@ -112,7 +112,7 @@ export function CarouselToolbar({ views }: Props) {
                   </TooltipTrigger>
 
                   <TooltipContent
-                    className="rounded-sm px-3 py-1"
+                    className="rounded-sm border px-3 py-1 text-white dark:text-background"
                     sideOffset={25}
                   >
                     <span className="text-xs">Views</span>
@@ -126,7 +126,7 @@ export function CarouselToolbar({ views }: Props) {
                     </button>
                   </TooltipTrigger>
                   <TooltipContent
-                    className="rounded-sm px-3 py-1"
+                    className="rounded-sm border px-3 py-1 text-white dark:text-background"
                     sideOffset={25}
                   >
                     <span className="text-xs">Book a meeting</span>
@@ -143,7 +143,7 @@ export function CarouselToolbar({ views }: Props) {
                     </DialogTrigger>
                   </TooltipTrigger>
                   <TooltipContent
-                    className="rounded-sm px-3 py-1"
+                    className="rounded-sm border px-3 py-1 text-white dark:text-background"
                     sideOffset={25}
                   >
                     <span className="text-xs">Share</span>
@@ -161,11 +161,11 @@ export function CarouselToolbar({ views }: Props) {
                           api.scrollPrev();
                         }}
                       >
-                        <Icons.ChevronLeft className="h-6 w-6 text-white" />
+                        <Icons.ChevronLeft className="h-6 w-6 text-foreground dark:text-white" />
                       </button>
                     </TooltipTrigger>
                     <TooltipContent
-                      className="rounded-sm px-3 py-1"
+                      className="rounded-sm border px-3 py-1 text-white dark:text-background"
                       sideOffset={25}
                     >
                       <span className="text-xs">Previous slide</span>
@@ -181,11 +181,11 @@ export function CarouselToolbar({ views }: Props) {
                           api.scrollNext();
                         }}
                       >
-                        <Icons.ChevronRight className="h-6 w-6 text-white" />
+                        <Icons.ChevronRight className="h-6 w-6 text-foreground dark:text-white" />
                       </button>
                     </TooltipTrigger>
                     <TooltipContent
-                      className="rounded-sm px-3 py-1"
+                      className="rounded-sm border px-3 py-1 text-white dark:text-background"
                       sideOffset={25}
                     >
                       <span className="text-xs">Next slide</span>

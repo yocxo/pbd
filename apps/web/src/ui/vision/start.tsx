@@ -1,5 +1,5 @@
+import { PbdContainer } from '#/ui/layout/pbd-container';
 import Logo from '#/ui/shared/logo';
-import { PbdContainer } from '../layout/pbd-container';
 
 export function Start() {
   return (
