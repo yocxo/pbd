@@ -5,18 +5,11 @@ import { useEffect, useState } from 'react';
 import type { CarouselApi } from '@pbd/ui/carousel';
 import { Carousel, CarouselContent, CarouselItem } from '@pbd/ui/carousel';
 
+import { Ai } from '#/ui/vision/ai';
+import { Book } from '#/ui/vision/book';
 import { CarouselToolbar } from '#/ui/vision/carousel-toolbar';
-import { SectionAi } from '#/ui/vision/section-ai';
-import { SectionBook } from '#/ui/vision/section-book';
-import {
-  SectionNot1,
-  SectionNot2,
-  SectionNot3,
-  SectionNot4,
-  SectionNot5,
-  SectionNot6,
-} from '#/ui/vision/section-not';
-import { SectionReality } from '#/ui/vision/section-reality';
+import { Not1, Not2, Not3, Not4, Not5, Not6 } from '#/ui/vision/not';
+import { Reality } from '#/ui/vision/reality';
 import { Start } from '#/ui/vision/start';
 
 export function VisionCarousel() {
@@ -42,31 +35,31 @@ export function VisionCarousel() {
           <Start />
         </CarouselItem>
         <CarouselItem>
-          <SectionReality />
+          <Reality />
         </CarouselItem>
         <CarouselItem className="bg-primary">
-          <SectionNot1 />
+          <Not1 />
         </CarouselItem>
         <CarouselItem className="bg-alternate">
-          <SectionNot2 />
+          <Not2 />
         </CarouselItem>
         <CarouselItem>
-          <SectionNot3 />
+          <Not3 />
         </CarouselItem>
         <CarouselItem className="bg-primary">
-          <SectionNot4 />
+          <Not4 />
         </CarouselItem>
         <CarouselItem className="bg-muted">
-          <SectionNot5 />
+          <Not5 />
         </CarouselItem>
         <CarouselItem>
-          <SectionNot6 />
+          <Not6 />
         </CarouselItem>
         <CarouselItem>
-          <SectionAi />
+          <Ai />
         </CarouselItem>
         <CarouselItem>
-          <SectionBook />
+          <Book />
         </CarouselItem>
       </CarouselContent>
 

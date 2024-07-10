@@ -4,7 +4,7 @@ import { cn } from '@pbd/ui';
 
 interface LogoProps {
   className?: string;
-  href?: string;
+  href?: boolean;
 }
 
 export default function Logo({ className, href }: LogoProps) {
@@ -27,7 +27,7 @@ export default function Logo({ className, href }: LogoProps) {
   if (href) {
     return (
       <Link
-        href={href}
+        href="/"
         className={cn('inline-flex', className)}
         aria-label="A round circle representing Pale Blue Dot's Logo"
       >

@@ -2,10 +2,13 @@ import Image from 'next/image';
 
 import Logo from '#/ui/shared/logo';
 
-export function SectionReality() {
+export function Reality() {
   return (
     <div className="relative min-h-screen">
-      <Logo className="absolute left-6 top-6 z-50 h-8 w-auto sm:size-10 md:left-8 md:top-8" />
+      <Logo
+        href
+        className="absolute left-6 top-6 z-50 h-8 w-auto sm:size-10 md:left-8 md:top-8"
+      />
       <div className="absolute inset-0">
         <Image fill alt="" src="/earth.jpg" className="object-cover" />
         <div className="absolute inset-0 bg-gray-900/80 mix-blend-multiply" />

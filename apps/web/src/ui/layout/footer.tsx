@@ -4,7 +4,7 @@ import { cn } from '@pbd/ui';
 import { ThemeToggle } from '@pbd/ui/theme';
 
 import { siteConfig } from '#/config/site';
-import Logo from '../shared/logo';
+import Logo from '#/ui/shared/logo';
 
 interface NavigationItem {
   name: string;

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { Card } from '#/ui/vision/ui';
 
-export function SectionAi() {
+export function Ai() {
   return (
     <div className="relative min-h-screen w-screen">
       <div className="absolute left-4 right-4 top-4 flex justify-between text-lg md:left-8 md:right-8">
